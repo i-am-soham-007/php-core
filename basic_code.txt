@@ -1,0 +1,60 @@
+﻿*India Date format
+	=>date_default_timezone_set('Asia/Kolkata');
+
+	date_default_timezone_set("Asia/Kolkata");
+*ORDER BY ID ASC/DESC IN CodeIginter
+	=>$this->db->order_by('id', 'ASC');
+*24 hours Date format in PHP 
+	=>echo date('H:i:s'); OUTPUT => 14:36:18 
+
+*PHP - count specific array values
+=>$array = array("blue", "red", "green", "blue", "blue");
+echo count(array_keys($array, "blue"));
+=>SolutionLink => https://stackoverflow.com/questions/11646054/php-count-specific-array-values
+
+*Search array and return multiple matches [duplicate]
+=>array_intersect — Computes the intersection of arrays
+
+ $matches = array_keys(array_intersect($cake, array(5)));
+ print_r($matches);
+ =>SolutionLink => https://stackoverflow.com/questions/17928183/search-array-and-return-multiple-matches
+
+ * WEEK WISE MONDAY TO SUNDAY DATE FROM MONTH YEAR
+CODE =><?php
+$increment = 1;		//  # of weeks to increment by
+//  First day of the first week of the year
+$startdate = strtotime("31 December 2007");
+//  $all_weeks[1] is the first partial week of the year
+//  $all_weeks[53] is the last partial week of the year
+$all_weeks = array();
+for ($week = 0; $week <= 52; $week += $increment)
+{
+  $week_data = array();
+  $week_data['start'] = strtotime("+$week weeks", $startdate);
+  $week_data['end'] = strtotime("+6 days", $week_data['start']);
+  $all_weeks[$week + 1] = $week_data;
+}
+echo "<pre>";
+echo "Week No.	Start Date	End Date\r\n";
+foreach ($all_weeks as $week => $week_data)
+{
+  echo $week . "\t\t" . date("Y-m-d", $week_data['start']) . 
+	"\t" . date("Y-m-d", $week_data['end']) . "\r\n";
+}
+echo "</pre>"
+?>
+ Solution Link =>https://www.daniweb.com/programming/web-development/threads/105292/increment-date-by-week
+
+
+ Distinct Query OR GROUP By Codeigniter
+ ---------------------------------------
+ $result = $this->db->where('prepaid_pass_id',$passid)->group_by('vehicle_number')->get('prepaid_pass_vehicle')->result();
+
+$insert_id = $this->db->insert_id();
+
+
+datepikcer
+-----------------------------------
+http://jsfiddle.net/PQfDc/682/
+-----------------------------------
+
